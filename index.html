@@ -1,0 +1,57 @@
+<head>
+  <style>
+      body {
+          font-family: Arial, Helvetica, sans-serif;
+          color: #444444;
+          width: 500px;
+          height: calc(100vh - 100px);
+          margin: 0 auto;
+          margin-top: 100px;
+          padding: 0px 30px;
+      }
+
+      #output {
+          border: 1px solid #444444;
+          padding: 20px;
+          background-color: #EEEEEE;
+          font-family: 'Courier New', Courier, monospace;
+      }
+
+      .logo {
+          width: 200px;
+      }
+  </style>
+</head>
+
+<html>
+    <body>
+        <img class="logo" src="./logo.png">
+        
+        <h1>URL Parser</h1>
+        <small>By Bruno Amadori</small>
+        <hr>
+        <h3>
+            Instructions
+        </h3>
+        <p> Please submit your URL to parse. It should comply with the following format: </p>
+        <h4>"/:version/api/:collection/:id"</h4>
+        <p>I.e.: "/6/api/listings/3?sort=desc&limit=10"</p>
+        <form id="urlForm">
+            <input id="urlInput" type="text">
+            <input id="urlSubmit" type="submit" value="Process URL">
+        </form>
+        <div id="urlError" style="color:red"></div>
+
+        <h3>
+            Output
+        </h3>
+        <div id="output">No output yet.</div>
+    </body>
+</html>
+
+<footer>
+    <script type="text/javascript" src="./app.js"></script>
+</footer>
+
+
+
