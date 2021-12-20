@@ -1,18 +1,18 @@
 /*
- * Ejercicio 1: URL Parser
- * Por Bruno Amadori
- * Para Rotunda Software
+ * Exercise 1: URL Parser
+ * By Bruno Amadori
+ * For Rotunda Software
  */
 
 /*
- * DECLARO FUNCIONES
+ * DECLARING MAIN FUNCTIONS
  *
  */
 
 function getHash(urlInstance) {
   const hash = {};
 
-  // Primero separo el urlInstance y luego empiezo a extraer los datos.
+  // First I split the urlInstance and then I extract the data into the hash object.
 
   const urlInstanceArray = urlInstance.split("/");
 
@@ -29,22 +29,23 @@ function getHash(urlInstance) {
 }
 
 function hashToString(hash) {
-  return JSON.stringify(hash, null, 2) // paso a string con dos espacios
-    .replace(/"([^"]+)":/g, "$1:"); // hago regex para quitar "double quotes" en propiedades
+  return JSON.stringify(hash, null, 2) // I stringify the object
+    .replace(/"([^"]+)":/g, "$1:"); // Some regex to delete "double quotes" on properties
 }
 
 /*
- *  OUTPUT
+ *  Manipulating DOM
  *
  */
 
 const outputDiv = document.getElementById("output");
 
-// Funcionalidad del form
+// Getting form elements
 const urlForm = document.getElementById("urlForm");
 const urlInput = document.getElementById("urlInput");
 const urlError = document.getElementById("urlError");
 
+// Adding listener for form submission
 urlForm.addEventListener("submit", (ev) => {
   ev.preventDefault();
 
@@ -55,7 +56,7 @@ urlForm.addEventListener("submit", (ev) => {
     console.log(hash);
   } catch (err) {
     urlError.innerHTML =
-      "An error has occured. Please enter the url respecting the mentioned structure.";
+      "An error has occured. Please try again with an URL that respects the mentioned structure.";
     console.log(err);
   }
 });
