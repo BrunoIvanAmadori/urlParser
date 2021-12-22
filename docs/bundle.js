@@ -66,39 +66,50 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  */
 function getHashTable(urlInstanceString, urlFormatString) {
   var hashTable = {}; // First I remove the first "/" character because it messes up the index.
-  // then I split the urlInstance.
+  // Then I split the urlInstance so I can parse separately each part.
 
-  var urlInstanceArray = urlInstanceString.slice(1).split("/"); // I remove the querystring from the last value so I can use IsNumber check.
+  var urlInstanceSplitted = urlInstanceString.slice(1).split("?"); // Naming each part
 
-  urlInstanceArray[urlInstanceArray.length - 1] = urlInstanceArray[urlInstanceArray.length - 1].split("?")[0]; // It's better to have the urlFormatString as an array because I can associate
-  // the name of the variable part and the index
+  var urlInstanceWithNoQuery = urlInstanceSplitted[0];
+  var queryOfUrlInstance = urlInstanceSplitted[1]; // Function for parsing UrlInstance
 
-  var format = (0, _getUrlFormatArray2.default)(urlFormatString);
-  console.log(format);
+  function parseUrlInstance(url, formatArray) {
+    // I create en array splitting
+    var urlInstanceArray = url.split("/"); // It's better to have the urlFormatString as an array too so I can associate both
 
-  for (var i = 0; i < format.length; i++) {
-    // If the index corresponds to a non-variable part, we skip it because we don't need it in the hashTable
-    if (format[i] == undefined) {
-      continue;
-    } else {
-      hashTable[format[i]] = urlInstanceArray[i];
-    } // If the value is a Number, then parseInt that
+    var format = formatArray;
 
+    for (var i = 0; i < format.length; i++) {
+      // If the index corresponds to a non-variable part, we skip it because we don't need it in the hashTable
+      if (format[i] == undefined) {
+        continue;
+      }
 
-    if ((0, _isNumber2.default)(urlInstanceArray[i])) {
-      hashTable[format[i]] = parseInt(urlInstanceArray[i]);
+      hashTable[format[i]] = urlInstanceArray[i]; // If the value is a Number, then parseInt that
+
+      if ((0, _isNumber2.default)(urlInstanceArray[i])) {
+        hashTable[format[i]] = parseInt(urlInstanceArray[i]);
+      }
     }
-  } // Getting the params
+  } // Function for parsing the params
 
 
-  var params = new URLSearchParams(urlInstanceString.split("?")[1]);
-  params.forEach(function (param, index) {
-    if ((0, _isNumber2.default)(param)) {
-      hashTable[index] = parseInt(param);
-    } else {
-      hashTable[index] = param;
-    }
-  });
+  function parseParams(queryString) {
+    var params = new URLSearchParams(queryString);
+    params.forEach(function (param, index) {
+      if ((0, _isNumber2.default)(param)) {
+        hashTable[index] = parseInt(param);
+      } else {
+        hashTable[index] = param;
+      }
+    });
+  } // I get the url format array and then pass it to parseUrlInstance
+
+
+  var urlFormatArray = (0, _getUrlFormatArray2.default)(urlFormatString);
+  parseUrlInstance(urlInstanceWithNoQuery, urlFormatArray); // Finally I parse params
+
+  parseParams(queryOfUrlInstance);
   return hashTable;
 }
 
