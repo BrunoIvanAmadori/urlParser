@@ -118,5 +118,3 @@ function initForm() {
 
 // We execute the stuff.
 initForm();
-
-module.exports = { isNumber };
