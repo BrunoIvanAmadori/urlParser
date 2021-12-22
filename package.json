@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "jest --env=jsdom",
+    "test": "jest --coverage",
     "build": "browserify src/js/app.js -o docs/bundle.js",
     "watch": "watchify src/js/app.js -o docs/bundle.js -v"
   },
