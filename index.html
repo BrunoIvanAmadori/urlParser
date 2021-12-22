@@ -1,36 +1,53 @@
-<head>
-  <link rel="stylesheet" href="style.css">
-</head>
-
 <html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
     <body>
         <img class="logo" src="./logo.png">
         
         <h1>URL Parser</h1>
         <small>By Bruno Amadori</small>
+
         <hr>
-        <h3>
-            Instructions
-        </h3>
-        <p> Please submit your URL to parse. It should comply with the following format: </p>
-        <h4>"/:version/api/:collection/:id"</h4>
-        <p>I.e.: "/6/api/listings/3?sort=desc&limit=10"</p>
-        <form id="urlForm">
-            <input id="urlInput" type="text">
-            <input id="urlSubmit" type="submit" value="Process URL">
+        <h3>Instructions</h3>
+
+        <p>Please provide a URL Format string and a URL Instance to obtain your Hash Table.</p>
+        <h4> Examples provided</h4>
+        <p>URL Format:</p>
+        <p> "/:version/api/:collection/:id"</p>
+        <p>URL Instance:</p>
+        <p> "/6/api/listings/3?sort=desc&limit=10"</p>
+
+        <br>
+        <hr>
+        <br>
+        
+        <form id="url-form">
+            <div class="url-form__field">
+                <label for="url-format-input">URL Format Input: </label>
+                <input id="url-format-input" type="text" placeholder="/:version/api/:collection/:id"><br>
+            </div>
+            <div class="url-form__field">
+                <label for="url-instance-input">URL Instance Input: </label>
+                <input id="url-instance-input" type="text" placeholder="/6/api/listings/3?sort=desc&limit=10"><br>
+            </div>
+            <input id="url-submit" type="submit" value="Process URL">
         </form>
-        <div id="urlError" style="color:red"></div>
+        <div id="url-error" style="color:red"></div>
 
         <h3>
             Output
         </h3>
         <div id="output">No output yet.</div>
     </body>
+
+    <footer>
+        <script type="text/javascript" src="./app.js"></script>
+    </footer>
+
 </html>
 
-<footer>
-    <script type="text/javascript" src="./app.js"></script>
-</footer>
+
 
 
 

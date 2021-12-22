@@ -1,0 +1,22 @@
+{
+  "name": "urlparser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest --env=jsdom"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrunoIvanAmadori/urlParser.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrunoIvanAmadori/urlParser/issues"
+  },
+  "homepage": "https://github.com/BrunoIvanAmadori/urlParser#readme",
+  "dependencies": {
+    "jest": "^27.4.5"
+  }
+}
