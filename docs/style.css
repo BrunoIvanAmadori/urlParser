@@ -1,0 +1,54 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #444444;
+  width: 500px;
+  margin: 0 auto;
+  padding: 50px 0px;
+}
+
+#output {
+  border: 1px solid #444444;
+  padding: 20px;
+  background-color: #eeeeee;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.logo {
+  width: 200px;
+}
+
+.url-form__field {
+  margin-bottom: 20px;
+}
+
+input {
+  border-radius: 10px;
+}
+
+input[type="text"] {
+  margin: 10px 0px;
+  height: 30px;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #777777;
+}
+
+input[type="submit"] {
+  border: none;
+  background-color: #0d6efd;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  margin: 10px 0px;
+  padding: 10px 10px 10px 10px;
+  width: 100%;
+}
+
+input[type="submit"]:hover {
+  background-color: #0c5ddc;
+}
+
+input[type="submit"]:active,
+input[type="submit"]:focus {
+  background-color: #0c5bba;
+}
